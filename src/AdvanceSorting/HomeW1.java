@@ -4,15 +4,27 @@ import java.io.*;
 import java.util.*;
 public class HomeW1 {
     public static void alternativeSorting(int[] arr) {
-        int size = arr.length;
-        Arrays.sort(arr);
-        int i = 0, j = size-1;
-        while (i < j) {
-            System.out.print(arr[j--] + " ");
-            System.out.print(arr[i++] + " ");
+        int x=arr.length;
+        for(int i=1;i<x;i++){
+            int pivot=arr[i];
+            int j=i-1;
+            while(j>=0 && pivot<arr[j]){
+                arr[j+1]=arr[j];
+                j--;
+            }
+            j++;
+            arr[j]=pivot;
         }
-        if (size % 2 != 0)
-            System.out.print(arr[i]);
+        int start=0,end=x-1;
+        int[] arr2 = new int[x];
+        for(int i=0;i<x;i++){
+            arr2[i]=arr[end--];
+            i++;
+            arr2[i]=arr[start++];
+        }
+        for(int i=0;i<x;i++){
+            arr[i]=arr2[i];
+        }
 
     }
 
@@ -24,8 +36,8 @@ public class HomeW1 {
             arr[i] = scanner.nextInt();
         }
         alternativeSorting(arr);
-        /*for(int i=0;i<arr.length;i++) {
+        for(int i=0;i<arr.length;i++) {
             System.out.print(arr[i]+" ");
-        }*/
+        }
     }
 }
