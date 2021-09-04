@@ -85,7 +85,7 @@ public class Code4 {
     }
 
     public static void main(String[] args){
-        Source obj = new Source();
+        Code4 obj = new Code4();
         String inputString = new String();
         Scanner in = new Scanner(System.in);
         inputString = in.nextLine();

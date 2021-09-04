@@ -3,11 +3,11 @@ package BinaryST2;
 import java.util.*;
 
 //class representing Structure of node in the binary tree
-class treeNode {
+class tree {
     int data;
     treeNode left, right;
 
-    treeNode(int value) {
+    tree(int value) {
         data = value;
         left = null;
         right = null;
