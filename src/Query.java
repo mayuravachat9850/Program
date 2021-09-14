@@ -51,10 +51,11 @@ public class Query {
     order by firstName desc;
 
 
-
+    Aggregation Operations
     { "_id" : "Consumer", "avgSales" : 380.6654117647059, "avgProfit" : 80.46035294117647 }
     { "_id" : "Home Office", "avgSales" : 296.90681818181815, "avgProfit" : 58.45045454545455 }
     { "_id" : "Corporate", "avgSales" : 431.5657978723404, "avgProfit" : 104.29037234042553 }
 
+    db.purchases.aggregate([{$group:{_id:null, total: {$sum: '$Sales'}}}])
     */
 }
