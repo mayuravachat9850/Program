@@ -49,5 +49,12 @@ public class Query {
     from employees
     where officeCode = 6 or reportsTo = 1088
     order by firstName desc;
+
+
+
+    { "_id" : "Consumer", "avgSales" : 380.6654117647059, "avgProfit" : 80.46035294117647 }
+    { "_id" : "Home Office", "avgSales" : 296.90681818181815, "avgProfit" : 58.45045454545455 }
+    { "_id" : "Corporate", "avgSales" : 431.5657978723404, "avgProfit" : 104.29037234042553 }
+
     */
 }
