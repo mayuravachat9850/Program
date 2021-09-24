@@ -50,6 +50,46 @@ public class Query {
     where officeCode = 6 or reportsTo = 1088
     order by firstName desc;
 
+    Nested Query
+    Description
+    Given the table marks containing the details of marks obtained by students containing the following columns
+
+    Student_id : Storing the id of the student
+    Course         : Storing the name of the course
+    Marks           : Storing the marks obtained by the student in the particular course
+
+    and the table teacher containing the details of the teacher with the following columns
+
+    Teacher_name : Storing the name of the teacher
+    Course                 : Storing the course taught by the teacher
+
+    Write a query to find the name of the teacher teaching the course with the highest average.
+    use upgrad;
+
+    select teacher_name
+    from teacher
+    where course =
+    (
+    select course
+    from marks
+    group by course
+    order by avg(marks) desc
+    limit 1
+    );
+
+
+    Most Productive Month
+    Description
+    Write a query to find the month number (Eg: 4 corresponds to April) in which the most number of payments were made.
+    Table name: payment
+    Columns: payment_date, Payment_id,
+
+    use upgrad;
+    select month(payment_date) as Payment_month, count(Payment_id) as No_of_payments
+    from payment
+    group by month(payment_date)
+    order by No_of_payments desc
+    limit 1;
 
     Aggregation Operations
     { "_id" : "Consumer", "avgSales" : 380.6654117647059, "avgProfit" : 80.46035294117647 }
@@ -119,4 +159,17 @@ CRUD
     db.books.update ({'Book_ID' : 'IN-2014-76016'},{ 'Author': 'J K Rowling', 'Pages':600, 'Price':460})
     db.books.find()
     */
+
+    /*
+    * MongoDB Query
+What is the total count of orders present in purchases collection where profit >= 200 and profit <= 3000?
+34
+✓ Correct
+Suggested Answer
+Mongo query to find number of orders present in purchases collection where profit >= 200 and profit <= 3000:
+use products
+db.purchases.find({ $and:[{'Profit':{$gte:200}},{'Profit':{$lte:3000}}]}).count()
+
+* 
+ */
 }
